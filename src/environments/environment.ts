@@ -9,5 +9,5 @@
 // the user in the browser and kept in localStorage only.
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://YOUR-API-HOST', // <-- PLACEHOLDER: set your API host
+  apiBaseUrl: 'https://smartdesktop-api.onrender.com',
 };

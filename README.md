@@ -41,9 +41,9 @@ On first visit the page asks for:
 Change them any time with the settings button (top right). The key is sent as the `X-Api-Key`
 header. **Never commit an API key**: this repository is public and the key lives only in the browser.
 
-Before deploying, set the production API address in `src/environments/environment.ts`
-(currently the placeholder `https://YOUR-API-HOST`). If you leave the placeholder, users are simply
-asked for the URL on first run. The API must allow the origin `https://jeribi-mohamed.github.io` in CORS.
+The production API address is set in `src/environments/environment.ts`
+(`https://smartdesktop-api.onrender.com`, hosted on Render with the database on Supabase).
+If it is set back to the placeholder `https://YOUR-API-HOST`, users are asked for the URL on first run. The API must allow the origin `https://jeribi-mohamed.github.io` in CORS.
 
 ## How sync works
 
