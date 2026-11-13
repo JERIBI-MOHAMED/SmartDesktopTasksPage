@@ -1,0 +1,56 @@
+<dialog #dialog aria-labelledby="settings-title" aria-describedby="settings-desc">
+  <form novalidate (submit)="submit($event)">
+    <h2 id="settings-title">Connect to your API</h2>
+    <p id="settings-desc" class="muted">
+      Tasks are shared with the tablet through your Smart Desktop API. Both values are stored only in this browser.
+    </p>
+
+    <div class="field">
+      <label for="api-url">API URL</label>
+      <input
+        id="api-url"
+        type="url"
+        inputmode="url"
+        autocomplete="url"
+        spellcheck="false"
+        placeholder="https://tasks-api.example.com"
+        [value]="url()"
+        [attr.aria-invalid]="urlError() ? true : null"
+        [attr.aria-describedby]="urlError() ? 'api-url-error' : null"
+        (input)="url.set(value($event))"
+      />
+      @if (urlError(); as e) {
+        <p id="api-url-error" class="error">{{ e }}</p>
+      }
+    </div>
+
+    <div class="field">
+      <label for="api-key">API key</label>
+      <div class="key-row">
+        <input
+          id="api-key"
+          [type]="showKey() ? 'text' : 'password'"
+          autocomplete="off"
+          spellcheck="false"
+          [value]="key()"
+          [attr.aria-invalid]="keyError() ? true : null"
+          [attr.aria-describedby]="keyError() ? 'api-key-error' : null"
+          (input)="key.set(value($event))"
+        />
+        <button type="button" class="btn btn-outline" [attr.aria-pressed]="showKey()" (click)="showKey.set(!showKey())">
+          {{ showKey() ? 'Hide' : 'Show' }}
+        </button>
+      </div>
+      @if (keyError(); as e) {
+        <p id="api-key-error" class="error">{{ e }}</p>
+      }
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-outline" (click)="close()">
+        {{ settings.hasSaved() ? 'Cancel' : 'Not now' }}
+      </button>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</dialog>

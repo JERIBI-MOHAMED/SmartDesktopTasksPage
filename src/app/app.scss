@@ -1,0 +1,241 @@
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+}
+
+.top {
+  min-height: 72px;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.conn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+
+  &.warn {
+    color: var(--warn);
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.banner {
+  padding: 14px 20px;
+  border-radius: 18px;
+  background: var(--warn-soft);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 16px;
+  line-height: 24px;
+
+  > .icon {
+    color: var(--warn);
+  }
+}
+
+.banner-text {
+  flex: 1 1 16rem;
+}
+
+.add {
+  display: flex;
+  gap: 12px;
+
+  input {
+    flex: 1;
+    min-width: 0;
+    height: 60px;
+    padding: 0 24px;
+    border-radius: 9999px;
+    border: 1px solid var(--control);
+    background: var(--card);
+    color: var(--text);
+    font-size: 17px;
+  }
+}
+
+.btn-add {
+  height: 60px;
+  padding: 0 28px;
+  font-size: 17px;
+}
+
+.card {
+  padding: 20px 24px;
+  border-radius: 24px;
+  background: var(--card);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 8px;
+
+  h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}
+
+.count {
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar {
+  flex: 1 1 8rem;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.empty {
+  margin: 16px 0 8px;
+  color: var(--muted);
+}
+
+.toast-region {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  max-width: 520px;
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.45);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0 16px 112px;
+  }
+
+  .conn {
+    font-size: 0; // keep icon only; the banner says the rest
+    gap: 0;
+  }
+
+  .banner {
+    padding: 14px 16px;
+  }
+
+  .add input {
+    height: 52px;
+    padding: 0 20px;
+  }
+
+  .btn-add {
+    height: 52px;
+    width: 52px;
+    padding: 0;
+  }
+
+  .add-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .card {
+    padding: 16px 12px 8px 8px;
+    border-radius: 20px;
+  }
+
+  .card-head {
+    padding-left: 8px;
+  }
+}

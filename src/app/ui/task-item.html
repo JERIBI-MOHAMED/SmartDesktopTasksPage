@@ -1,0 +1,50 @@
+<button
+  type="button"
+  class="check"
+  [attr.aria-label]="(task().isDone ? 'Mark not done: ' : 'Mark done: ') + task().title"
+  (click)="toggle.emit()"
+>
+  <span class="box">
+    @if (task().isDone) {
+      <app-icon name="check" [size]="16" [stroke]="3" />
+    }
+  </span>
+</button>
+
+<div class="body">
+  @if (editing()) {
+    <form class="edit" (submit)="save($event, true)">
+      <label class="sr-only" [for]="'edit-' + task().id">Task title</label>
+      <input
+        #editInput
+        type="text"
+        [id]="'edit-' + task().id"
+        [value]="task().title"
+        [maxLength]="maxLength"
+        autocomplete="off"
+        enterkeyhint="done"
+        (keydown.escape)="cancel()"
+        (blur)="save()"
+      />
+    </form>
+  } @else {
+    <span class="title" (dblclick)="startEdit()">{{ task().title }}</span>
+  }
+  @if (pending()) {
+    <span class="pending"><app-icon name="clock" [size]="16" [stroke]="2" />Not sent yet</span>
+  }
+</div>
+
+<button
+  #renameButton
+  type="button"
+  class="icon-btn"
+  [attr.aria-label]="'Rename: ' + task().title"
+  [attr.aria-expanded]="editing()"
+  (click)="startEdit()"
+>
+  <app-icon name="pencil" />
+</button>
+<button type="button" class="icon-btn danger" [attr.aria-label]="'Delete: ' + task().title" (click)="remove.emit()">
+  <app-icon name="trash" />
+</button>
